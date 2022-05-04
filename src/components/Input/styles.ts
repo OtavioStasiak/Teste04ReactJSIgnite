@@ -1,6 +1,12 @@
 import styled, { css } from 'styled-components';
+import { boolean } from 'yup';
 
-export const Container = styled.div`
+type divProps = {
+  isFocused: boolean;
+  isFilled: boolean;
+  
+}
+export const Container = styled.div<divProps>`
   display: flex;
   align-items: center;
 
@@ -21,15 +27,15 @@ export const Container = styled.div`
     line-height: 36px;
   }
 
-  ${props =>
-    props.isFocused &&
+  ${({isFocused}) =>
+    isFocused &&
     css`
       color: #ff9000;
       border-color: #ff9000;
     `}
 
-  ${props =>
-    props.isFilled &&
+  ${({isFilled}) =>
+    isFilled &&
     css`
       color: #ff9000;
     `}
