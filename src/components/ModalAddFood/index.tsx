@@ -9,16 +9,17 @@ import {Input} from '../Input';
 type Props = {
   isOpen: boolean;
   setIsOpen: () => void;
+  setIsClosed: () => void;
   handleAddFood: (data: {image: string, name: string, price: number, description: string}) => void;
 }
 
-export function ModalAddFood({isOpen, setIsOpen, handleAddFood}: Props){
+export function ModalAddFood({isOpen, setIsOpen, handleAddFood, setIsClosed}: Props){
   const formRef = useRef(null);
 
 
   async function handleSubmit(data: {image: string, name: string, price: number, description: string}) {
     handleAddFood(data);
-    setIsOpen();
+    setIsClosed();
   };
 
     return (
